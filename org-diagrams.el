@@ -6,10 +6,10 @@
 (defvar org-diagrams-dest-dir "./images"
   "Destination directory to export images. NIL uses the default value (./images), while a non-nil string sets the destination directory to that path relative to the parent directory of the current file")
 
-(defvar org-diagrams-on-update "drawio -x -f png -o ${OUT} ${IN}"
+(defvar org-diagrams-on-update nil ;"drawio -x -f png -o ${OUT} ${IN}"
   "Command to run when a diagram is created/changed. NIL uses the default command, which uses inkscape to export an svg to a png")
 
-(defvar org-diagrams-editor "drawio"
+(defvar org-diagrams-editor "inkscape" ;"drawio"
   "Command to edit a diagram")
 
 (defvar org-diagrams-watcher "diagon"
