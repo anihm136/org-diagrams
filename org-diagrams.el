@@ -61,7 +61,9 @@
     (copy-file org-diagrams-diagram-template source-path)))
 
 (defun org-diagrams-edit (source-path)
-  (start-process "" nil org-diagrams-editor source-path))
+  (progn
+    (princ source-path)
+    (start-process "" nil org-diagrams-editor source-path)))
 
 (defun org-diagrams-insert (diagram-name)
   (let* ((diagram-path (concat (file-name-as-directory org-diagrams-dest-dir) diagram-name ".png")))
@@ -85,6 +87,7 @@
         (org-diagrams-create source-path)
         (delete-region (car bounds) (cdr bounds))
         (org-diagrams-insert diagram-name)
+        (princ source-path)
         (org-diagrams-edit source-path)))))
 
 (defun org-diagrams-edit-at-point ()
